@@ -56,6 +56,8 @@ void setup() {
   } else {
     wifiSetup.startWiFiSetup();
   }
+
+  server.begin();
 }
 
 void requestTemp(){
