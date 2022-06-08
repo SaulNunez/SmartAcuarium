@@ -2,6 +2,8 @@
 
 #include <OneWire.h>
 #include <DallasTemperature.h>
+#include<WiFiSetup.h>
+#include <ESPAsyncWebServer.h>
 
 // GPIO where the DS18B20 is connected to
 const int oneWireBus = 4;     
@@ -11,6 +13,9 @@ OneWire oneWire(oneWireBus);
 
 // Pass our oneWire reference to Dallas Temperature sensor 
 DallasTemperature sensors(&oneWire);
+
+AsyncWebServer server(80);
+//WiFiSetup setup(server);
 
 void setup() {
   Serial.begin(115200);
