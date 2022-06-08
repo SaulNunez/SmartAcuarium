@@ -24,6 +24,12 @@ void startTermometer(){
   sensors.begin();
 }
 
+void requestTemp(){
+  sensors.requestTemperatures(); 
+  currentTemperatureC = sensors.getTempCByIndex(0);
+  currentTemperatureF = sensors.getTempFByIndex(0);
+}
+
 void setup() {
   Serial.begin(115200);
   
@@ -58,12 +64,6 @@ void setup() {
   }
 
   server.begin();
-}
-
-void requestTemp(){
-  sensors.requestTemperatures(); 
-  currentTemperatureC = sensors.getTempCByIndex(0);
-  currentTemperatureF = sensors.getTempFByIndex(0);
 }
 
 void loop() {
