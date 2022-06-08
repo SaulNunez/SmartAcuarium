@@ -97,7 +97,7 @@ bool WiFiSetup::connect()
   if (!SPIFFS.begin())
   {
     Serial.println("An Error has occurred while mounting SPIFFS");
-    return;
+    return false;
   }
 
   if (!SPIFFS.exists("/wifi.conf"))
